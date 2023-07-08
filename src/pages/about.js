@@ -1,9 +1,8 @@
 import NavBar from "../../components/NavBars";
 
-export default function Potatio() {
+export default function Potato() {
     return (
-        <div>
-            <NavBar />
+        <div> 
             <h1>About</h1>
         </div>
     );
