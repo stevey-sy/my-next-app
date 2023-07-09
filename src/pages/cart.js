@@ -17,7 +17,19 @@ export default function Cart() {
                         </div>
                     </div>
                     <ul>
-                        <li></li>
+                        <li>
+                            <article>
+                                <h2>화이트</h2>
+                                <button type="button">삭제</button>
+                                <div>
+                                    <div class="stepper stepper-sm stepper-secondary">
+                                        <a href="#" class="stepper-button stepper-down">-</a>
+                                        <input type="text" class="form-control" value="4" disabled="" />
+                                        <a href="#" class="stepper-button stepper-up">+</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </li>
 
                     </ul>
 
@@ -35,7 +47,7 @@ export default function Cart() {
                 }
 
                 .carted-product {
-                    background-color: purple;
+                    background-color: gray;
                     position: relative;
                     display: inline-block;
                     padding: 20px 15px 20px 49px;
