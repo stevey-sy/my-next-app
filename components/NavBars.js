@@ -16,6 +16,9 @@ export default function NavBar() {
         <Link href="/cart" legacyBehavior>
           <a className={router.pathname === "/cart" ? "active" : ""}>Cart</a>
         </Link>
+        <Link href="/cart2" legacyBehavior>
+          <a className={router.pathname === "/cart2" ? "active" : ""}>Cart2</a>
+        </Link>
       </div>
       <style jsx>{`
         nav {
