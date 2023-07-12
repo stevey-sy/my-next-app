@@ -5,7 +5,15 @@ export default function NavBar() {
   const router = useRouter();
   return (
     <nav>
-      <img src="/vercel.svg" />
+      <div className="nav-header">
+        <div className="nav-header-center">
+          <img src="/vercel.svg" />
+        </div>
+        <div className="nav-header-left">
+
+        </div>
+      </div>
+
       <div>
         <Link href="/" legacyBehavior>
           <a className={router.pathname === "/" ? "active" : ""}>Home</a>
@@ -46,6 +54,26 @@ export default function NavBar() {
           display: flex;
           gap: 10px;
         }
+
+        .nav-header {
+          position: relative;
+          display: flex;
+          align-items: center;
+          padding: 0 16px;
+          -webkit-box-pack: justify;
+          justify-content: space-between;
+          height: 50px;
+          box-sizing: border-box;
+          line-height: 0;
+        }
+
+        .nav-header-center {
+          flex: 0 0 auto;
+          left: 50%;
+          top: 50%;
+          color: #212629;
+        }
+
       `}</style>
     </nav>
   );

@@ -13,7 +13,7 @@ export default function Cart() {
             <div className="image-container">
               <img src="/pink_frame.jpg" alt="product" />
             </div>
-            <div className="text">
+            <div className="product-small-item-title">
               <h3>Pink Frame</h3>
               <h4>배송비 5,000원 | 일반택배</h4>
             </div>
@@ -28,20 +28,41 @@ export default function Cart() {
                     <div className="options-delete-button">
                         <img src="/thin_close.png" />
                     </div>
-                    <div className="stepper">
-                        <a href="#" className="stepper-button down">-</a>
-                        <input type="text" className="form-control" value="1" disabled />
-                        <a href="#" className="stepper-button up">+</a>
+                    <div className="carted-product-option-list-item-bottom">
+                      <div className="stepper">
+                          <span className="stepper-button down">-</span>
+                          <button className="form-control" disabled >1</button>
+                          <span className="stepper-button up">+</span>
+                      </div>
+                      <div className="item-price">
+                        <span>
+                          15,900원
+                        </span>
+                      </div>
                     </div>
-
-
                 </article>
             </li>
           </ul>
+          <div className="carted-product-footer">
+              <span className="carted-product-footer-left">
+                TOTAL
+              </span>
+              <span className="carted-product-subtotal">
+                  <span className="carted-product-subtotal-number">
+                      63,600
+                  </span>
+                  원
+              </span>
+          </div>
         </article>
       </div>
 
       <style jsx>{`
+
+        blockquote, body, code, dd, div, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, input, legend, li, ol, p, pre, td, textarea, th, ul {
+          margin: 0;
+          padding: 0;
+        }
 
         a {
             text-decoration: none;
@@ -51,36 +72,37 @@ export default function Cart() {
           background-color: #fefefe;
           position: relative;
           display: inline-block;
-          padding: 20px 15px 20px 40px;
+          padding: 20px 15px 20px 50px;
         }
         .product-select {
           position: absolute;
           display: inline-block;
-          top: 10px;
+          top: 20px;
           left: 10px;
           width: 20px;
           height: 20px;
         }
 
-        h3, h4 {
-            font-size: 14px;
+        h3 {
+          margin: 0 20px 12px 0;
+          font-size: 16px;
+        }
+
+        h4 {
+          margin: 0 20px 12px 0;
+          font-size: 12px;
         }
 
         input[type=checkbox] {
-            transform : scale(1.2);
+            transform : scale(1.1);
             width: 100%;
             height: 100%;
-        }
-
-        .carted-product-option-list-item-article {
-            background-color: #F7F9FA;
-            padding: 8px;
         }
 
         .product-delete-button {
             position: absolute;
             display: inline-block;
-            top: 10px;
+            top: 20px;
             right: 10px;
             width: 20px;
             height: 20px;
@@ -92,9 +114,34 @@ export default function Cart() {
         }
 
         .in {
+          margin: 0 20px 12px 0;
           position: relative;
           display: flex;
-          align-items: center; /* 수직 가운데 정렬 */
+        }
+
+        .image-container {
+          width: 20%;
+          margin-right: 10px; /* 이미지와 텍스트 사이의 간격 조정 */
+        }
+
+        .image-container img {
+            width: 100%;
+            border-radius: 12px;
+        }
+
+        .product-small-item-title {
+          -webkit-box-flex: 1;
+          flex: 1 0 0px;
+          padding-left: 12px;
+         }
+
+        .carted-product-option-list-item-article {
+          position: relative;
+          margin-bottom: 8px;
+          padding: 12px;
+          background-color: rgb(247, 249, 250);
+          border-radius: 4px;
+          color: rgb(47, 52, 56);
         }
 
         .carted-product-option-list-item-article h4 {
@@ -107,8 +154,8 @@ export default function Cart() {
             top: 0px;
             right: 0px;
             border: none;
-            width: 20px;
-            height: 20px;
+            width: 40px;
+            height: 40px;
         }
 
         .options-delete-button img {
@@ -124,16 +171,39 @@ export default function Cart() {
             list-style: none;
         }
 
-        .stepper {
-            height: 28px;
-            width: 80px;
-            min-width: 80px;
-            border-radius: 6px;
-            display: inline-flex;
-            align-items: flex-start;
+        .carted-product-option-list-item-bottom {
+            display: flex;
+            align-items: flex-end;
+            -webkit-box-pack: justify;
             justify-content: space-between;
-            overflow: hidden;
-            margin: 10px 0px 0px 0px;
+        }
+
+        .stepper {
+            // height: 28px;
+            // width: 80px;
+            // min-width: 80px;
+            // border-radius: 6px;
+            // display: inline-flex;
+            // align-items: flex-start;
+            // justify-content: space-between;
+            // overflow: hidden;
+            // margin: 10px 0px 0px 0px;
+            // position: absolute;
+            // bottom: 10px;
+            // left: 20px;
+
+            width: 70px;
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+            -webkit-box-pack: justify;
+            justify-content: space-between;
+            padding: 7px 6px;
+            background: rgb(255, 255, 255);
+            color: rgb(47, 52, 56);
+            border: 1px solid rgb(218, 221, 224);
+            border-radius: 4px;
+            margin-top: 12px;
         }
 
         .stepper > a {
@@ -141,47 +211,59 @@ export default function Cart() {
           }
 
         .stepper-button {
-            background: #6C7C94;
-            border-color: #6C7C94;
-            height: 30px;
-            width: 24px;
-            font-size: 17px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: inline-block;
+            font-size: 18px;
+            line-height: 1;
+            cursor: pointer;
         }
 
         .form-control {
-            border-color: #6C7C94;
-            color: #6C7C94;
-            height: 30px;
-            width: 32px;
-            font-size: 15px;
-            border-radius: 0;
-            box-shadow: none !important;
-            background: transparent;
-            text-align: center;
-            border: 2px solid #1E74FD;
+          font-size: 14px;
+          line-height: 18px;
+          padding: 0px;
+          border: 0px;
+          background: none;
+          color: rgb(47, 52, 56);
         }
 
-        .stepper-button-up {
-            
+        .item-price {
+            flex: 1 1 0%;
+            text-align: right;
+            display: block;
         }
 
-
-
-        .image-container {
-          width: 20%;
-          margin-right: 10px; /* 이미지와 텍스트 사이의 간격 조정 */
+        .item-price span {
+            font-size: 16px;
+            line-height: 20px;
+            font-weight: 600;
+            text-align: right;
         }
 
-        .image-container img {
-          width: 100%;
-          border-radius: 12px;
+        .carted-product-footer {
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+            -webkit-box-pack: justify;
+            justify-content: space-between;
+            margin-top: 16px;
         }
 
-        .text {
-          flex-grow: 1; /* 텍스트 컨테이너가 남은 공간을 채우도록 설정 */
+        .carted-product-footer-left {
+            flex: 0 0 auto;
+        }
+
+        .carted-product-subtotal {
+            -webkit-box-flex: 0;
+            flex: 0 0 auto;
+            color: #000;
+            font-size: 17px;
+            font-weight: 700;
+        }
+
+        .carted-product-subtotal-number {
+            color: #000;
+            font-size: 17px;
+            font-weight: 700;
         }
 
         .movie img {
