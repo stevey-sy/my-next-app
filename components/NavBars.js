@@ -4,16 +4,18 @@ import { useRouter } from "next/router";
 export default function NavBar() {
   const router = useRouter();
   return (
-    <nav>
-      <div className="nav-header">
+     <nav>
+     <div className="nav-header">
+        <div className="nav-header-right">
+          <img src="/hamburger.png" />
+        </div>
         <div className="nav-header-center">
           <img src="/vercel.svg" />
         </div>
         <div className="nav-header-left">
-
+          <img src="/shopping-cart.png" />
         </div>
       </div>
-
       <div>
         <Link href="/" legacyBehavior>
           <a className={router.pathname === "/" ? "active" : ""}>Home</a>
@@ -29,6 +31,59 @@ export default function NavBar() {
         </Link>
       </div>
       <style jsx>{`
+
+        .nav-header {
+          display: flex;
+          position: relative;
+          align-items: center;
+          padding: 0 16px;
+          justify-content: space-between;
+          height: 50px;
+          box-sizing: border-box;
+          line-height: 0;
+          width: 100%;
+        }
+
+        .nav-header-center {
+          flex: 0 0 40%; /* Set the width to 15% */
+          display: flex;
+          justify-content: center; /* Center horizontally */
+          align-items: center;
+          color: #212629;
+        }
+
+        .nav-header-center img {
+          max-width: 100%;
+          height: auto;
+        }
+
+        .nav-header-left {
+          flex: 0 0 10%;
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+        }
+
+        .nav-header-left img {
+          max-width: 100%;
+          height: auto;
+        }
+
+
+        .nav-header-right {
+          flex: 0 0 5%;
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+        }
+
+        .nav-header-right img {
+          max-width: 100%;
+          height: auto;
+        }
+
+
+
         nav {
           display: flex;
           gap: 10px;
@@ -55,26 +110,9 @@ export default function NavBar() {
           gap: 10px;
         }
 
-        .nav-header {
-          position: relative;
-          display: flex;
-          align-items: center;
-          padding: 0 16px;
-          -webkit-box-pack: justify;
-          justify-content: space-between;
-          height: 50px;
-          box-sizing: border-box;
-          line-height: 0;
-        }
-
-        .nav-header-center {
-          flex: 0 0 auto;
-          left: 50%;
-          top: 50%;
-          color: #212629;
-        }
-
       `}</style>
     </nav>
+
+   
   );
 }
