@@ -27,44 +27,44 @@ export default function Cart() {
         <ul>
           <li>
             <article className="carted-product">
-            <div className="product-select">
-              <input type="checkbox" /> 
-            </div>
-            <div className="in">
-              <div className="image-container">
-                <img src="/pink_frame.jpg" alt="product" />
+              <div className="product-select">
+                <input type="checkbox" /> 
               </div>
-              <div className="product-small-item-title">
-                <h3>Pink Frame</h3>
-                <h4>배송비 5,000원 | 일반택배</h4>
+              <div className="in">
+                <div className="image-container">
+                  <img src="/pink_frame.jpg" alt="product" />
+                </div>
+                <div className="product-small-item-title">
+                  <h3>Pink Frame</h3>
+                  <h4>배송비 5,000원 | 일반택배</h4>
+                </div>
               </div>
-            </div>
-            <div className="product-delete-button">
-                <img src="/cross.png" /> 
-            </div>
-            <ul className="carted-product-option-list">
-              <li className="carted-product-option-list-item">
-                  <article className="carted-product-option-list-item-article">
-                      <h4>블랙</h4>
-                      <div className="options-delete-button">
-                          <img src="/thin_close.png" />
-                      </div>
-                      <div className="carted-product-option-list-item-bottom">
-                        <div className="stepper">
-                            <span className="stepper-button down">-</span>
-                            <button className="form-control" disabled >1</button>
-                            <span className="stepper-button up">+</span>
+              <div className="product-delete-button">
+                  <img src="/cross.png" /> 
+              </div>
+              <ul className="carted-product-option-list">
+                <li className="carted-product-option-list-item">
+                    <article className="carted-product-option-list-item-article">
+                        <h4>블랙</h4>
+                        <div className="options-delete-button">
+                            <img src="/thin_close.png" />
                         </div>
-                        <div className="item-price">
-                          <span>
-                            15,900원
-                          </span>
+                        <div className="carted-product-option-list-item-bottom">
+                          <div className="stepper">
+                              <span className="stepper-button down">-</span>
+                              <button className="form-control" disabled >1</button>
+                              <span className="stepper-button up">+</span>
+                          </div>
+                          <div className="item-price">
+                            <span>
+                              15,900원
+                            </span>
+                          </div>
                         </div>
-                      </div>
-                  </article>
-              </li>
-            </ul>
-            <div className="carted-product-footer">
+                    </article>
+                </li>
+              </ul>
+              <div className="carted-product-footer">
                 <span className="carted-product-footer-left">
                   TOTAL
                 </span>
@@ -74,15 +74,25 @@ export default function Cart() {
                     </span>
                     원
                 </span>
-            </div>
+              </div>
+              <footer className="delivery-subtotal-container">
+                <p className="delivery-subtotal-price">
+                  배송비 24,000원
+                </p>
+              </footer>
             </article>
           </li>
         </ul>
-        <footer className="delivery-subtotal-container">
-          <p className="delivery-subtotal-price">
-            배송비 24,000원
-          </p>
-        </footer>
+      </div>
+      <div className="sticky-cart-footer">
+        <div className="sticky-child-cart-footer">
+          <div class="cart-footer-total">
+            <span className="total-count">10개 </span>
+            <span className="total-cost">855,800원</span>
+          </div>
+          <button className="cart-order-button">바로구매</button>
+
+        </div>
 
       </div>
 
@@ -340,8 +350,6 @@ export default function Cart() {
             line-height: 20px;
             text-align: center;
             color: #424242;
-            border-top: 1px solid #ededed;
-            border-bottom: 12px solid #ededed;
         }
 
         .delivery-subtotal-price {
@@ -354,25 +362,59 @@ export default function Cart() {
             padding: 0;
         }
 
+        .sticky-cart-footer {
+          position: sticky;
+          bottom: 0px;
+          transition: bottom 0.1s ease 0s;
+        }
+
+        .sticky-child-cart-footer {
+          display: flex;
+          z-index: 502;
+          padding: 6px;
+          background-color: hsla(0,0%,100%,.94);
+          flex-wrap: wrap;
+        }
+
+        .cart-footer-total {
+          flex: 0 0 auto;
+          padding: 12px 16px 12px 10px;
+          color: #000;
+          font-size: 15px;
+          line-height: 20px;
+          text-align: center;
+        }
+
+        .total-count {
+            color: #000;
+            font-size: 15px;
+            line-height: 20px;
+            text-align: center;
+        }
+
+        .total-cost {
+            color: #000;
+            font-size: 15px;
+            line-height: 20px;
+            text-align: center;
+        }
+
+        .cart-order-button {
+            -webkit-box-flex: 1;
+            flex: 1 0 auto;
+            width: auto;
+            padding: 11px 10px;
+            margin-bottom: env(safe-area-inset-bottom,0);
+        }
+
         footer, header, main {
             box-sizing: border-box;
             position: relative;
             display: block;
         }
 
-        .movie img {
-          max-width: 100%;
-          border-radius: 12px;
-          transition: transform 0.2s ease-in-out;
-          box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-        }
-        .movie:hover img {
-          transform: scale(1.05) translateY(-10px);
-        }
-        .movie h4 {
-          font-size: 18px;
-          text-align: center;
-        }
+
+
 
       `}</style>  
     </div>
